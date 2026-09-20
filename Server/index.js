@@ -28,4 +28,3 @@ connectDB().then(() => {
     app.listen(PORT, () => console.log(`server running on port ${PORT}`));
 })
 
-console.log('ACCESS SECRET LOADED:', !!process.env.JWT_ACCESS_SECRET);

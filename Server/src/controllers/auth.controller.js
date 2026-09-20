@@ -1,4 +1,18 @@
-const { registerUser, loginUser} = require('../services/auth.service');
+const User = require('../models/User');
+const { SanitizeUser, registerUser, loginUser} = require('../services/auth.service');
+
+
+async function me(req, res, next) {
+    try {
+        const user = await User.findById(req.user.id);
+        if(!user) {
+            return res.status(404).json({error: 'User not found'});
+        }
+        res.json({user: SanitizeUser(user)});
+    } catch (error) {
+        next(error);
+    }
+}
 
 async function register(req, res, next) {
     try {
@@ -25,4 +39,4 @@ async function login(req, res, next) {
     }
 }
 
-module.exports = {register, login};
+module.exports = {register, login, me};
