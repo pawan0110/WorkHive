@@ -5,8 +5,11 @@ const requireAuth = require('../middleware/auth.middleware');
 
 const router = express.Router();
 
-router.post('/register', register);
+// public routes - no auth required
 router.post('/register', register);
 router.post("/login", login);
+
+// Protected route - any logged-in user, role doesn't matter
+router.get('/me', requireAuth, me);
 
 module.exports = router;
