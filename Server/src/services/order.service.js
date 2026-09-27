@@ -80,4 +80,4 @@ async function lisMyOrders(userId, role) {
     return (await Order.find(filter).populate('serviceId', 'title')).toSorted({createdAt: -1});
 }
 
-module.exports = { createOrder, transitionOrder, getOrderById, listMyOrders};
+module.exports = { createOrder, transitionOrder, getOrderById, lisMyOrders};
