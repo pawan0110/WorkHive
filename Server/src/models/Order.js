@@ -17,7 +17,7 @@ const orderSchema = new mongoose.Schema(
         customerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
         providerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
         status: { type: String, enum: ORDER_STATUSES, default: 'REQUESTED' },
-        totalAmount: { type: number, required: true },
+        totalAmount: { type: Number, required: true },
         statusHistory: [
             {
                 status: { type: String, enum: ORDER_STATUSES, required: true },

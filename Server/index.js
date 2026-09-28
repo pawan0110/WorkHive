@@ -5,7 +5,8 @@ const cookieparser = require('cookie-parser');
 const connectDB = require('./src/config/db');
 const app = express();
 const authRoutes = require('./src/routes/auth.routes')
-const sericeRoutes = require('./src/routes/service.routes');
+const serviceRoutes = require('./src/routes/service.routes');
+const orderRoutes = require('./src/routes/order.routes');
 
 
 app.use(cors({origin: process.env.CLIENT_URL || 'http://localhost:5173, credentails: true'}));
@@ -19,6 +20,7 @@ app.get('/api/health', (req,res) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/services', serviceRoutes);
+app.use('/api/orders', orderRoutes);
 
 
 app.use((err, req, res, next) => {

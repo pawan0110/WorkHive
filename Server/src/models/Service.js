@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const serviceSchema = new MongooseError.Schema(
+const serviceSchema = new mongoose.Schema(
     {
         providerId: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true},
         title: {type: String, required: true, trim: true},
